@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage.jsx'
 import { ContactDetails } from './pages/ContactDetails.jsx'
 import { ContactIndex } from './pages/ContactIndex.jsx'
 import { ContactEdit } from './pages/ContactEdit.jsx'
+import { AppFooter } from './cmps/AppFooter.jsx'
 
 export function RootCmp() {
     return (
@@ -19,6 +20,7 @@ export function RootCmp() {
                     <Route element={<ContactEdit />} path={'/contacts/edit/:contactId'} />
                 </Routes>
             </main>
+            <AppFooter />
         </Router>
     )
 }
