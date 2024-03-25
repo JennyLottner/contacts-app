@@ -3,6 +3,7 @@ const Router = ReactRouterDOM.HashRouter
 
 import { HomePage } from './pages/HomePage.jsx'
 import { ContactDetails } from './pages/ContactDetails.jsx'
+import { ContactIndex } from './pages/ContactIndex.jsx'
 
 export function RootCmp() {
     return (
@@ -11,7 +12,6 @@ export function RootCmp() {
             <main >
                 <Routes>
                     <Route element={<HomePage />} path={'/'} />
-                    <Route element={<ContactDetails />} path={'/contact/:contactId'} />
                 </Routes>
             </main>
         </Router>
