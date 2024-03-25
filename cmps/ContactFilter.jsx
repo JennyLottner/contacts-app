@@ -24,8 +24,8 @@ export function ContactFilter({ filterBy, onSetFilter }) {
         <label>By gender: </label>
         <select value={filterBy.gender} name="gender" onChange={handleChange}>
             <option value="all">All</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
+            <option value="f">Female</option>
+            <option value="m">Male</option>
             <option value="other">Other</option>
         </select>
         <label>By birthday month: </label>
