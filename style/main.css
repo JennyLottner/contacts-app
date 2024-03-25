@@ -5,7 +5,12 @@
 /* Base */
 @import 'base/base.css';
 @import 'base/helpers.css';
+@import 'base/layout.css';
 
 /* Pages */
+@import 'pages/contactIndex.css';
 
 /* Components */
+@import 'cmps/appHeader.css';
+@import 'cmps/contactList.css';
+@import 'cmps/contactPreview.css';

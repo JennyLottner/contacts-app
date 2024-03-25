@@ -5,10 +5,12 @@ import { HomePage } from './pages/HomePage.jsx'
 import { ContactDetails } from './pages/ContactDetails.jsx'
 import { ContactIndex } from './pages/ContactIndex.jsx'
 
+import { AppHeader } from './cmps/AppHeader.jsx'
+
 export function RootCmp() {
     return (
         <Router>
-            {/* <AppHeader /> */}
+            <AppHeader />
             <main >
                 <Routes>
                     <Route element={<HomePage />} path={'/'} />

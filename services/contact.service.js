@@ -13,7 +13,8 @@ export const contactService = {
     getEmptyContact,
     getDefaultFilter,
     getFilterFromParams,
-    getContactById
+    getContactById,
+    getBirthdayFromString
 }
 // For Debug only
 window.cs = contactService
@@ -50,7 +51,7 @@ function remove(contactId) {
 }
 
 function save(contact) {
-    if (contact.id) {
+    if (contact._id) {
         return storageService.put(CONTACTS_KEY, contact)
     } else {
         contact = _createContact(contact.vendor, contact.maxSpeed)
@@ -114,7 +115,6 @@ function _createContact(fullName = '', gender = 'male', birthday = null) {
     if (!contact.birthday) contact.birthday = _birthdayGenerator()
     contact.address = _addressGenerator()
 
-    console.log('contact:', contact)
     return contact
 }
 
@@ -123,9 +123,8 @@ function _addressGenerator() {
     const streets = ['Shoshan St.', 'Chartzit Rd.', 'Savion Blvd.', 'Kalanit Ave.', 'Rakefet Rd.', 'Irus Ave.',
         'Yasmin St.', 'Sitvanit Blvd.', 'Vered St.', 'Sachlav Ave.', 'Tormus Blvd.']
     const cities = ['Tel-Aviv', 'Jerusalem', 'Haifa', 'Eilat', 'Rishon-LeZion', 'Kiryat-Gat', 'Beer-Sheva', 'Carmiel']
-    const countries = ['Israel', 'USA', 'Tha Netherlands', 'India']
 
-    return `${num} ${streets[utilService.getRandomIntInclusive(0, streets.length)]}, ${cities[utilService.getRandomIntInclusive(0, cities.length)]}, ${countries[utilService.getRandomIntInclusive(0, countries.length)]}`
+    return `${num} ${streets[utilService.getRandomIntInclusive(0, streets.length - 1)]}, ${cities[utilService.getRandomIntInclusive(0, cities.length - 1)]}, Israel`
 }
 
 function _birthdayGenerator() {
@@ -137,6 +136,35 @@ function _birthdayGenerator() {
     const day = String(bDay.getDate()).padStart(2, '0')
 
     return `${year}-${month}-${day}`
+}
+
+function getBirthdayFromString(contact) {
+    const birthdayArr = contact.birthday.split('-')
+    const date = new Date(Date.UTC(birthdayArr[0], birthdayArr[1] - 1, birthdayArr[2]))
+
+    let day = date.getDate()
+
+    if (day >= 11 && day <= 13) {
+        day = day + 'th' // Special case for 11th, 12th, and 13th
+    } else {
+        switch (day % 10) {
+            case 1:
+                day = day + 'st'
+                break
+            case 2:
+                day = day + 'nd'
+                break
+            case 3:
+                day = day + 'rd'
+                break
+            default:
+                day = day + 'th'
+        }
+    }
+    const month = date.toLocaleString('default', { month: 'short' })
+    const year = date.getFullYear()
+
+    return `${month} ${day}, ${year}`
 }
 
 function _setNextPrevContactId(contact) {
