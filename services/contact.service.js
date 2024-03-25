@@ -59,7 +59,7 @@ function save(contact) {
 }
 
 function getDefaultFilter() {
-    return { txt: '' }
+    return { txt: '', gender: 'female', pageIdx: 0 }
 }
 
 function getFilterFromParams(searchParams = {}) {
