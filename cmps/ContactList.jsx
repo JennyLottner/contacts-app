@@ -14,7 +14,8 @@ export function ContactList({ onRemoveContact }) {
 					<ContactPreview contact={contact} />
 				</Link>
 				<div className="contact-actions flex space-evenly">
-					<button onClick={() => onRemoveContact(contact._id)}><i className="fa-regular fa-trash-can"></i></button>
+					{/* <button onClick={() => onRemoveContact(contact._id)}><i className="fa-regular fa-trash-can"></i></button> */}
+					<button className="btn remove-contact-btn" onClick={() => onRemoveContact(contact._id)}></button>
 					<Link to={`/contacts/edit/${contact._id}`}><button><i className="fa-regular fa-pen-to-square"></i></button></Link>
 				</div>
 			</li>

@@ -18,3 +18,8 @@
     align-items: center;
     gap: 5px;
 }
+
+.remove-contact-btn::before {
+    content: "\f2ed";
+    font-family: fa-reg;
+}
