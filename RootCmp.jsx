@@ -1,16 +1,17 @@
 const { Route, Routes } = ReactRouterDOM
+const Router = ReactRouterDOM.HashRouter
 
 import { HomePage } from './pages/HomePage.jsx'
 
 export function RootCmp() {
     return (
-        <div>
+        <Router>
             {/* <AppHeader /> */}
             <main >
                 <Routes>
                     <Route element={<HomePage />} path={'/'} />
                 </Routes>
             </main>
-        </div>
+        </Router>
     )
 }
