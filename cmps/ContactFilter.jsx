@@ -9,9 +9,11 @@ export function ContactFilter({ filterBy, onSetFilter }) {
         onSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
-    function handleChange(ev) {
-        ev.stopPropagation()
-
+   
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        value = type === 'number' ? +value : value
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
     return <section className="contact-filter">
