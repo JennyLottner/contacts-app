@@ -1,0 +1,19 @@
+@font-face {
+    font-family: dosis;
+    src: url('../../fonts/Dosis-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: fa-reg;
+    src: url('../../fonts/fa-regular-400.ttf');
+}
+
+@font-face {
+    font-family: fa;
+    src: url('../../fonts/fa-solid-900.ttf');
+}
+
+@font-face {
+    font-family: fa-brands;
+    src: url('../../fonts/fa-brands-400.ttf');
+}
