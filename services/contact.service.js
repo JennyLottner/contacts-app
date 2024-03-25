@@ -73,7 +73,7 @@ function getFilterFromParams(searchParams = {}) {
 
 function getEmptyContact(fullName = '', gender = 'male', birthday = null) {
     return {
-        _id: utilService.makeId(),
+        _id: '',
         fullName,
         gender,
         birthday,
@@ -109,6 +109,7 @@ function _createContacts() {
 
 function _createContact(fullName = '', gender = 'male', birthday = null) {
     const contact = getEmptyContact(fullName, gender, birthday)
+    contact._id = utilService.makeId()
     const telStr = '0' + utilService.getRandomIntInclusive(500000000, 599999999)
     contact.tel = telStr.substring(0, 3) + '-' + telStr.substring(3)
     if (!contact.birthday) contact.birthday = _birthdayGenerator()
