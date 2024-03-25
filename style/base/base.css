@@ -24,6 +24,10 @@ p {
     margin: 0 0 1em;
 }
 
+pre {
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: unset;

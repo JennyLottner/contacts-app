@@ -11,6 +11,6 @@
 @import 'pages/contactIndex.css';
 
 /* Components */
-@import 'cmps/appHeader.css';
+@import 'cmps/appHeaderFooter.css';
 @import 'cmps/contactList.css';
 @import 'cmps/contactPreview.css';
