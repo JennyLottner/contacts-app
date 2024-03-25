@@ -1,9 +1,11 @@
-import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT } from '../reducers/contact.reducer.js'
+import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT, SET_FILTER_BY } from '../reducers/contact.reducer.js'
 import { contactService } from '../../services/contact.service.js'
 import { store } from '../store.js'
 
 
-export function loadContacts(filterBy) {
+export function loadContacts() {
+    const filterBy = store.getState().contactModule.filterBy
+
     return contactService.query(filterBy)
         .then(contacts => {
             store.dispatch({
@@ -49,7 +51,6 @@ export function removeContact(contactId) {
         })
 }
 
-
 export function updateContact(contact) {
     return contactService.save(contact)
         .then((savedContact) => {
@@ -60,3 +61,9 @@ export function updateContact(contact) {
         })
 }
 
+export function setFilterBy(filterBy) {
+    return store.dispatch({
+                type: SET_FILTER_BY,
+                filterBy
+            })
+}

@@ -27,14 +27,18 @@ function query(filterBy = getDefaultFilter()) {
         .then(contacts => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                contacts = contacts.filter(contacts => regex.test(contacts.vendor))
+                contacts = contacts.filter(contact => regex.test(contact.fullName || contact.address))
             }
-            if (filterBy.minSpeed) {
-                contacts = contacts.filter(contacts => contacts.maxSpeed >= filterBy.minSpeed)
+            if (filterBy.gender && filterBy.gender !== 'all') {
+                const regex = new RegExp(filterBy.gender, 'i')
+                contacts = contacts.filter(contact => regex.test(contact.gender))
             }
-            if (filterBy.desc) {
-                const regex = new RegExp(filterBy.desc, 'i')
-                contacts = contacts.filter(contacts => regex.test(contacts.desc))
+            if (filterBy.birthMonth && filterBy.birthMonth !== 'all') {
+                contacts = contacts.filter(contact => {
+                    const birthdayArr = contact.birthday.split('-')
+                    const month = (parseInt(birthdayArr[1]))
+                    return month === filterBy.birthMonth
+                })
             }
             return contacts
         })
@@ -60,15 +64,15 @@ function save(contact) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', gender: 'female', pageIdx: 0 }
+    return { txt: '', gender: 'all', birthMonth: 'all', pageIdx: 0 }
 }
 
 function getFilterFromParams(searchParams = {}) {
     const defaultFilter = getDefaultFilter()
     return {
         txt: searchParams.get('txt') || defaultFilter.txt,
-        minSpeed: searchParams.get('minSpeed') || defaultFilter.minSpeed,
-        desc: searchParams.get('desc') || defaultFilter.desc
+        gender: searchParams.get('gender') || defaultFilter.gender,
+        birthMonth: searchParams.get('birthMonth') || defaultFilter.birthMonth
     }
 }
 

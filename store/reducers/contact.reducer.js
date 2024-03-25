@@ -1,3 +1,5 @@
+import { contactService } from "../../services/contact.service.js"
+
 export const SET_CONTACTS = 'SET_CONTACTS'
 export const ADD_CONTACT = 'ADD_CONTACT'
 export const REMOVE_CONTACT = 'REMOVE_CONTACT'
@@ -7,7 +9,7 @@ export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const initialState = {
     contacts: null,
-    filterBy: { txt: '', gender: 'female', pageIdx: 0 },
+    filterBy: contactService.getDefaultFilter(),
 }
 
 export function contactReducer(state = initialState, action) {
@@ -22,7 +24,7 @@ export function contactReducer(state = initialState, action) {
         case UPDATE_CONTACT:
             return { ...state, contacts: state.contacts.map(contact => contact._id === action.contact._id ? action.contact : contact) }
         case SET_FILTER_BY:
-            return { ...state, filterBy: action.val }
+            return { ...state, filterBy: action.filterBy }
         default:
             return state
     }
