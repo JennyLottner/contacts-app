@@ -3,10 +3,10 @@
 }
 
 .contact-article img {
-    margin-block: 0.5em;
+    margin-block: 1em 0.45em;
     border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
+    height: 4.9em;
+    width: 4.9em;
     object-fit: cover;
     background-color: rgba(240, 245, 255, 0.589);
 }

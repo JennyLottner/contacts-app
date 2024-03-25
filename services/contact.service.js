@@ -88,8 +88,9 @@ function _createContacts() {
     let contacts = utilService.loadFromStorage(CONTACTS_KEY)
     if (!contacts || !contacts.length) {
         contacts = []
-        contacts.push(_createContact('Gigi Tover', 'female'))
+        contacts.push(_createContact('Shoval Cabag', 'female'))
         contacts.push(_createContact('Chuck Tover', 'male'))
+        contacts.push(_createContact('Gigi Tover', 'female'))
         contacts.push(_createContact('Alan Tover', 'male'))
         contacts.push(_createContact('Tova Tover', 'female'))
         contacts.push(_createContact('Yoni Schwartz', 'male'))

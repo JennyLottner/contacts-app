@@ -21,3 +21,16 @@
     content: '\f044';
     font-family: fa-reg;
 }
+
+.contact-list,
+.contact-list li {
+    transition: 1s ease-in-out;
+}
+
+@media(width > 850px) {
+    .contact-list {
+        columns: 2 400px;
+        gap: 2em;
+        column-rule: rgba(240, 245, 255, 0.678) solid 1px;;
+    }
+}
