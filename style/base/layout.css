@@ -3,6 +3,8 @@ body {
 }
 
 .home-section,
-.contacts-section {
+.contacts-section,
+.contact-edit {
     margin-inline: 1em;
+    padding-block-end: 2.5em;
 }

@@ -21,13 +21,12 @@ window.cs = contactService
 
 
 function query(filterBy = getDefaultFilter()) {
-    console.log('filterBy', filterBy)
 
     return storageService.query(CONTACTS_KEY)
         .then(contacts => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                contacts = contacts.filter(contact => regex.test(contact.fullName || contact.address))
+                contacts = contacts.filter(contact => regex.test(contact.fullName) || regex.test(contact.address))
             }
             if (filterBy.gender && filterBy.gender !== 'all') {
                 const regex = new RegExp(filterBy.gender, 'i')
@@ -36,8 +35,7 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.birthMonth && filterBy.birthMonth !== 'all') {
                 contacts = contacts.filter(contact => {
                     const birthdayArr = contact.birthday.split('-')
-                    const month = (parseInt(birthdayArr[1]))
-                    return month === filterBy.birthMonth
+                    return birthdayArr[1] === filterBy.birthMonth
                 })
             }
             return contacts
@@ -76,7 +74,7 @@ function getFilterFromParams(searchParams = {}) {
     }
 }
 
-function getEmptyContact(fullName = '', gender = 'male', birthday = null) {
+function getEmptyContact(fullName = '', gender = 'm', birthday = null) {
     return {
         _id: '',
         fullName,
@@ -92,28 +90,28 @@ function _createContacts() {
     let contacts = utilService.loadFromStorage(CONTACTS_KEY)
     if (!contacts || !contacts.length) {
         contacts = []
-        contacts.push(_createContact('Shoval Cabag', 'female'))
-        contacts.push(_createContact('Chuck Tover', 'male'))
-        contacts.push(_createContact('Gigi Tover', 'female'))
-        contacts.push(_createContact('Alan Tover', 'male'))
-        contacts.push(_createContact('Tova Tover', 'female'))
-        contacts.push(_createContact('Yoni Schwartz', 'male'))
-        contacts.push(_createContact('Suzi Schwartz', 'female'))
-        contacts.push(_createContact('Sammy Tover', 'male'))
-        contacts.push(_createContact('Miriam Tover', 'female'))
-        contacts.push(_createContact('David Tover', 'male'))
-        contacts.push(_createContact('Taylor Tover', 'female'))
-        contacts.push(_createContact('Jonny Tover', 'male', '1996-03-16'))
-        contacts.push(_createContact('Jenny Lottner', 'female', '1998-01-20'))
-        contacts.push(_createContact('Michael Tover', 'male'))
-        contacts.push(_createContact('Nomi Raban', 'female'))
-        contacts.push(_createContact('Yoni Oz', 'male'))
-        contacts.push(_createContact('Serena Tover', 'female'))
+        contacts.push(_createContact('Shoval Sabag', 'f'))
+        contacts.push(_createContact('Chuck Tover', 'm'))
+        contacts.push(_createContact('Gigi Tover', 'f'))
+        contacts.push(_createContact('Alan Tover', 'm'))
+        contacts.push(_createContact('Tova Tover', 'f'))
+        contacts.push(_createContact('Yoni Schwartz', 'm'))
+        contacts.push(_createContact('Suzi Schwartz', 'f'))
+        contacts.push(_createContact('Sammy Tover', 'm'))
+        contacts.push(_createContact('Miriam Tover', 'f'))
+        contacts.push(_createContact('David Tover', 'm'))
+        contacts.push(_createContact('Taylor Tover', 'f'))
+        contacts.push(_createContact('Jonny Tover', 'm', '1996-03-16'))
+        contacts.push(_createContact('Jenny Lottner', 'f', '1998-01-20'))
+        contacts.push(_createContact('Michael Tover', 'm'))
+        contacts.push(_createContact('Nomi Raban', 'f'))
+        contacts.push(_createContact('Yoni Oz', 'm'))
+        contacts.push(_createContact('Serena Tover', 'f'))
         utilService.saveToStorage(CONTACTS_KEY, contacts)
     }
 }
 
-function _createContact(fullName = '', gender = 'male', birthday = null) {
+function _createContact(fullName = '', gender = 'm', birthday = null) {
     const contact = getEmptyContact(fullName, gender, birthday)
     contact._id = utilService.makeId()
     const telStr = '0' + utilService.getRandomIntInclusive(500000000, 599999999)

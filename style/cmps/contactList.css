@@ -4,13 +4,10 @@
     column-rule: rgba(240, 245, 255, 0.678) solid 1px;
 }
 
-.contact-list li:first-child {
-    border-block-start: rgba(240, 245, 255, 0.678) solid 1px;
-}
-
-.contact-list li:not(:last-child) {
-    padding-block: 0.25em;
-    border-block-end: rgba(240, 245, 255, 0.678) solid 1px;
+.contact-list li {
+    break-inside: avoid;
+    border-block-start: rgba(240, 245, 255, 0.678) solid 0.5px;
+    border-block-end: rgba(240, 245, 255, 0.678) solid 0.5px;
 }
 
 .contact-actions {
