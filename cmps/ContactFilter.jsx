@@ -22,13 +22,13 @@ export function ContactFilter({ filterBy, onSetFilter }) {
         </label>
         <input type="text" name="txt" id="txt" value={filterBy.txt} onChange={handleChange} />
         <label>By gender: </label>
-        <select value={filterBy.gender} onChange={handleChange}>
+        <select value={filterBy.gender} name="gender" onChange={handleChange}>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="other">Other</option>
         </select>
         <label>By birthday month: </label>
-        <select value={filterBy.birthMonth} onChange={handleChange}>
+        <select name="birthMonth" value={filterBy.birthMonth} onChange={handleChange}>
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
