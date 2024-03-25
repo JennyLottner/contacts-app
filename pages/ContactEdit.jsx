@@ -33,8 +33,11 @@ export function ContactEdit() {
 
     if (!contactToEdit) return <div className="loading-div">Loading contact...</div>
     return <section className="contact-edit">
-        <h1>Edit your contact details</h1>
-        {contactToEdit && <form className="edit-contact-form" onSubmit={setContactDetails}>
+        <h1 style={{textAlign: 'center'}}>Edit your contact details</h1>
+        {contactToEdit && 
+        <form className="contact-edit-form flex column justify-center" onSubmit={setContactDetails}>
+            <div className="img-and-input-div flex justify-center">
+            <div className="forms-div flex space-between column">
             <label htmlFor="contact-fullname">Full name: </label>
             <input id="contact-fullname" name="fullName" type="text" placeholder="Your full name" value={contactToEdit.fullName || ''} onChange={handleChange} />
             <label>Gender: </label>
@@ -48,10 +51,11 @@ export function ContactEdit() {
             <label htmlFor="contact-phone">Phone number: </label>
             <input type="tel" name="tel" id="contact-phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" value={contactToEdit.tel || ''} onChange={handleChange} />
             <label htmlFor="contact-address">Address: </label>
-            <input type="text" name="address" id="contact-address" value={contactToEdit.address || ''} onChange={handleChange} />
-            <label htmlFor="contact-img">Profile image: </label>
-            <img src={`https://robohash.org/${contactToEdit.fullName}?set=set2`} title={`${contactToEdit.fullname}'s profile image`} alt={`${contactToEdit.fullname}'s profile image`} />
-            <button>Set!</button>
+            <input type="text" name="address" id="contact-address" placeholder="Your address" value={contactToEdit.address || ''} onChange={handleChange} /></div>
+            <img src={`https://robohash.org/${contactToEdit.fullName}?set=set2`} className="contact-edit-img"
+            title={`${contactToEdit.fullName}'s profile image`} alt={`${contactToEdit.fullName}'s profile image`} onLoad={handleChange} />
+            </div>
+            <button className="contact-edit-btn">Set</button>
         </form>}
     </section>
 }

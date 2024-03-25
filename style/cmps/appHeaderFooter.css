@@ -16,3 +16,9 @@
 .header-section nav {
     gap: 2em;
 }
+
+.footer-section {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
