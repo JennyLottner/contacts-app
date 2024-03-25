@@ -3,13 +3,14 @@
 }
 
 .contact-edit-form {
-    gap: 4em;
-    margin-block: 7em;
+    gap: 1.5em;
 }
 
 .contact-edit-img {
     object-fit: contain;
     height: auto;
+    border-radius: 50%;
+    background-color: rgba(240, 245, 255, 0.589)
 }
 
 .contact-edit-btn {
@@ -20,6 +21,18 @@
     color: bisque;
 }
 
-.img-and-input-div {
-    gap: 7em;
+.img-and-input-div,
+.forms-div {
+    gap: 1.5em;
+}
+
+@media(width < 600px) {
+    .img-and-input-div {
+        flex-direction: column;
+    }
+
+    .contact-edit-form img {
+        align-self: center;
+        max-width: 100px;
+    }   
 }
