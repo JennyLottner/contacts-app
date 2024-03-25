@@ -50,10 +50,10 @@ function remove(contactId) {
 }
 
 function save(contact) {
-    if (contact.id) {
+    if (contact._id) {
         return storageService.put(CONTACTS_KEY, contact)
     } else {
-        contact = _createContact(contact.vendor, contact.maxSpeed)
+        contact._id = utilService.makeId()
         return storageService.post(CONTACTS_KEY, contact)
     }
 }
