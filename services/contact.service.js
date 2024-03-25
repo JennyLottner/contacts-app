@@ -21,7 +21,6 @@ window.cs = contactService
 
 
 function query(filterBy = getDefaultFilter()) {
-    console.log('filterBy', filterBy)
 
     return storageService.query(CONTACTS_KEY)
         .then(contacts => {
