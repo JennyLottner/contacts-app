@@ -36,13 +36,12 @@ export function ContactIndex() {
     return <section className='index-section'>
         <h3>Contacts</h3>
             <main>
-                <Link to="/contact/edit"><button>Add Contact</button></Link>
+                <Link to="/contacts/edit"><button>Add Contact</button></Link>
 
                 {/* <ContactFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
 
                 {(contacts && contacts.length)
                     ? <ContactList
-                        contacts={contacts}
                         onRemoveContact={onRemoveContact}
                     />
                     : <div>Loading...</div>
