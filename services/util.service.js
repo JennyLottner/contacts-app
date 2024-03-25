@@ -4,7 +4,7 @@ export const utilService = {
     getRandomIntInclusive,
     loadFromStorage,
     saveToStorage,
-    animateCSS.
+    animateCSS,
     debounce
 }
 
