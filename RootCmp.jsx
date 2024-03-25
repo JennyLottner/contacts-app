@@ -13,7 +13,9 @@ export function RootCmp() {
                 <Routes>
                     <Route element={<HomePage />} path={'/'} />
                     <Route element={<ContactIndex />} path={'/contacts'} />
-                    <Route element={<ContactDetails />} path={'/contact/:contactId'} />
+                    <Route element={<ContactDetails />} path={'/contacts/:contactId'} />
+                    <Route element={<ContactDetails />} path={'/contacts/edit'} />
+                    <Route element={<ContactDetails />} path={'/contacts/edit/:contactId'} />
                 </Routes>
             </main>
         </Router>
