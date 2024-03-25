@@ -1,0 +1,20 @@
+.contact-list li:first-child {
+    border-block-start: rgba(240, 245, 255, 0.678) solid 1px;
+}
+
+.contact-list li:not(:last-child) {
+    padding-block: 0.25em;
+    border-block-end: rgba(240, 245, 255, 0.678) solid 1px;
+}
+
+.contact-actions {
+    gap: 0.3125em;
+    min-width: 10%;
+}
+
+.contact-actions button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

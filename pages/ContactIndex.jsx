@@ -33,20 +33,17 @@ export function ContactIndex() {
             })
     }
 
-    return <section className='index-section'>
-        <h3>Contacts</h3>
-            <main>
-                <Link to="/contacts/edit"><button>Add Contact</button></Link>
-
-                {/* <ContactFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
-
-                {(contacts && contacts.length)
-                    ? <ContactList
-                        onRemoveContact={onRemoveContact}
-                    />
-                    : <div>Loading...</div>
-                }
-                <hr />
-            </main>
+    return <section className='contacts-section'>
+        <header className='flex space-between align-center'>
+            <h3>Contacts</h3>
+            <Link to="/contacts/edit"><button>Add Contact</button></Link>
+        </header>
+        {/* <ContactFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
+        <main>
+            {(contacts && contacts.length) ?
+                <ContactList onRemoveContact={onRemoveContact} />
+                : <div>Loading...</div>
+            }
+        </main>
     </section>
 }

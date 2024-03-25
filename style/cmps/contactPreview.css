@@ -1,0 +1,16 @@
+.contact-article {
+    gap: 1em;
+}
+
+.contact-article img {
+    margin-block: 0.5em;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    background-color: rgba(240, 245, 255, 0.589);
+}
+
+.contact-article span{
+    font-weight: lighter;
+}
