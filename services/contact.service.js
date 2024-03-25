@@ -12,7 +12,8 @@ export const contactService = {
     save,
     getEmptyContact,
     getDefaultFilter,
-    getFilterFromParams
+    getFilterFromParams,
+    getContactById
 }
 // For Debug only
 window.cs = contactService
@@ -147,4 +148,8 @@ function _setNextPrevContactId(contact) {
         contact.prevContactId = prevContact.id
         return contact
     })
+}
+
+function getContactById(id) {
+    return storageService.get(CONTACTS_KEY, id)
 }
