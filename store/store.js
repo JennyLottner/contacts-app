@@ -1,11 +1,11 @@
-import { todoReducer } from './reducers/todo.reducer.js'
-import { userReducer } from './reducers/user.reducer.js'
+import { contactReducer } from './reducers/contact.reducer.js'
+import { appReducer } from './reducers/app.reducer.js'
 
 const { createStore, combineReducers, compose } = Redux
 
 const rootReducer = combineReducers({
-    todoModule: todoReducer,
-    userModule: userReducer
+    contactModule: contactReducer,
+    appModule: appReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
