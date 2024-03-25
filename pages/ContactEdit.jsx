@@ -18,7 +18,6 @@ export function ContactEdit() {
 
     function setContactDetails(ev) {
         ev.preventDefault()
-        console.log(contactToEdit)
         saveContact(contactToEdit)
             .then(savedContact => setMsg(`${savedContact.fullName} was successfully saved to our contact list!`))
             .catch(err => console.log('err', err))
@@ -45,7 +44,7 @@ export function ContactEdit() {
                 <option value="other">Other</option>
             </select>
             <label htmlFor="contact-birthday">Birth day: </label>
-            <input type="date" id="contact-birthday" name="birthday" value={contactToEdit.birthday || ''} onChange={handleChange} />
+            <input type="date" id="contact-birthday" name="birthday" required value={contactToEdit.birthday || ''} onChange={handleChange} />
             <label htmlFor="contact-phone">Phone number: </label>
             <input type="tel" name="tel" id="contact-phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" value={contactToEdit.tel || ''} onChange={handleChange} />
             <label htmlFor="contact-address">Address: </label>
