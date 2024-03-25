@@ -80,7 +80,7 @@ function getEmptyContact(fullName = '', gender = 'male', birthday = null) {
         birthday,
         tel: '',
         address: '',
-        img: `https://robohash.org/${fullName}.png`
+        img: `https://robohash.org/${fullName}?set=set2`
     }
 }
 
@@ -88,8 +88,8 @@ function _createContacts() {
     let contacts = utilService.loadFromStorage(CONTACTS_KEY)
     if (!contacts || !contacts.length) {
         contacts = []
-        contacts.push(_createContact('Chuck Tover', 'male'))
         contacts.push(_createContact('Gigi Tover', 'female'))
+        contacts.push(_createContact('Chuck Tover', 'male'))
         contacts.push(_createContact('Alan Tover', 'male'))
         contacts.push(_createContact('Tova Tover', 'female'))
         contacts.push(_createContact('Yoni Schwartz', 'male'))
@@ -182,3 +182,5 @@ function _setNextPrevContactId(contact) {
 function getContactById(id) {
     return storageService.get(CONTACTS_KEY, id)
 }
+
+//
