@@ -1,7 +1,11 @@
-// import { store } from '../store.js'
 
-// // import { SET_USER, SET_USER_BALANCE } from '../reducers/user.reducer.js'
+import { SET_MSG } from '../reducers/app.reducer.js'
+import { store } from '../store.js'
 
-// export function setPrefs(prefs) {
 
-// }
+export function setMsg(msg) {
+    store.dispatch({
+        type: SET_MSG,
+        msg
+    })
+}

@@ -7,7 +7,7 @@ export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const initialState = {
     contacts: null,
-    filterBy: { txt: '', gender: 'all', pageIdx: 0 },
+    filterBy: { txt: '', gender: 'female', pageIdx: 0 },
 }
 
 export function contactReducer(state = initialState, action) {
@@ -15,7 +15,8 @@ export function contactReducer(state = initialState, action) {
         case SET_CONTACTS:
             return { ...state, contacts: action.contacts }
         case ADD_CONTACT:
-            return { ...state, contacts: [action.contact, ...state.contacts] }
+            return { ...state,
+                contacts: [...state.contacts, action.contact] }
         case REMOVE_CONTACT:
             return { ...state, contacts: state.contacts.filter(contact => contact._id !== action.contactId) }
         case UPDATE_CONTACT:
