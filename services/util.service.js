@@ -4,7 +4,8 @@ export const utilService = {
     getRandomIntInclusive,
     loadFromStorage,
     saveToStorage,
-    animateCSS
+    animateCSS.
+    debounce
 }
 
 function makeId(length = 6) {
@@ -58,3 +59,14 @@ function animateCSS(el, animation = 'bounce') {
         }
     })
 }
+
+function debounce(func, timeout = 300) {
+    let timer
+    return (...args) => {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            func.apply(this, args)
+        }, timeout)
+    }
+}
+
