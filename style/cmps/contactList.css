@@ -12,14 +12,12 @@
     min-width: 10%;
 }
 
-.contact-actions button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.contact-actions .remove-btn::before {
+    content: '\f2ed';
+    font-family: fa-reg;
 }
 
-.remove-contact-btn::before {
-    content: "\f2ed";
+.contact-actions .edit-btn::before {
+    content: '\f044';
     font-family: fa-reg;
 }
