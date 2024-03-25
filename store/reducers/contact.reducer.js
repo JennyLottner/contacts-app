@@ -10,7 +10,7 @@ const initialState = {
     filterBy: { txt: '', isDone: 'all', pageIdx: 0 },
 }
 
-export function todoReducer(state = initialState, action) {
+export function contactReducer(state = initialState, action) {
     switch (action.type) {
         case SET_TODOS:
             return { ...state, todos: action.todos }

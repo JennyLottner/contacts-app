@@ -1,21 +1,16 @@
-const Router = ReactRouterDOM.HashRouter
 const { Route, Routes } = ReactRouterDOM
 
-// import { Home } from './pages/home.jsx'
+import { HomePage } from './pages/HomePage.jsx'
 
 export function RootCmp() {
-    return <Router>
-        <section className="app main-layout">
+    return (
+        <div>
             {/* <AppHeader /> */}
-
-            <main className="full main-layout">
+            <main >
                 <Routes>
-                    {/* <Route path="/" element={<Home />} /> */}
+                    <Route element={<HomePage />} path={'/'} />
                 </Routes>
             </main>
-
-            {/* <UserMsg /> */}
-            {/* <AppFooter /> */}
-        </section>
-    </Router>
+        </div>
+    )
 }

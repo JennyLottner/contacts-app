@@ -1,13 +1,10 @@
-import { userService } from "../../services/user.service.js"
-
 export const SET_USER = 'SET_USER'
 export const SET_USER_BALANCE = 'SET_USER_BALANCE'
 
 const initialState = {
-    user: userService.getLoggedinUser()
 }
 
-export function userReducer(state = initialState, action) {
+export function appReducer(state = initialState, action) {
     switch (action.type) {
         case SET_USER:
             return { ...state, user: action.user }
