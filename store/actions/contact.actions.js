@@ -1,61 +1,62 @@
-import { todoService } from '../../services/todo.service.js'
-import { ADD_TODO, REMOVE_TODO, SET_TODOS, UPDATE_TODO } from '../reducers/todo.reducer.js'
+import { contactService } from '../../services/contact.service.js'
+import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, UPDATE_CONTACT } from '../reducers/contact.reducer.js'
 import { store } from '../store.js'
 
 
-export function loadTodos(filterBy) {
-    return todoService.query(filterBy)
-        .then(todos => {
+export function loadContacts() {
+    const filterBy = store.getState().contactModule.filterBy
+    return contactService.query(filterBy)
+        .then(contacts => {
             store.dispatch({
-                type: SET_TODOS,
-                todos
+                type: SET_CONTACTS,
+                contacts
             })
-            return todos
+            return contacts
         })
         .catch(err => {
-            console.error('Cannot load todos:', err)
+            console.error('Cannot load contacts:', err)
             throw err
         })
 }
 
 
-export function saveTodo(todo) {
-    const type = (todo._id) ? UPDATE_TODO : ADD_TODO
-    return todoService.save(todo)
-        .then(savedTodo => {
+export function saveContact(contact) {
+    const type = (contact._id) ? UPDATE_CONTACT : ADD_CONTACT
+    return contactService.save(contact)
+        .then(savedContact => {
             store.dispatch({
                 type,
-                todo: savedTodo
+                contact: savedContact
             })
-            return savedTodo
+            return savedContact
         })
         .catch(err => {
-            console.error('Cannot save todo:', err)
+            console.error('Cannot save contact:', err)
             throw err
         })
 }
 
-export function removeTodo(todoId) {
-    return todoService.removeTodo(todoId)
+export function removeContact(contactId) {
+    return contactService.remove(contactId)
         .then(() => {
             store.dispatch({
-                type: REMOVE_TODO,
-                todoId
+                type: REMOVE_CONTACT,
+                contactId
             })
         })
         .catch(err => {
-            console.error('Cannot remove todo:', err)
+            console.error('Cannot remove contact:', err)
             throw err
         })
 }
 
 
-export function updateTodo(todo) {
-    return todoService.save(todo)
-        .then((savedTodo) => {
+export function updateContact(contact) {
+    return contactService.save(contact)
+        .then((savedContact) => {
             store.dispatch({
-                type: UPDATE_TODO,
-                todo: savedTodo
+                type: UPDATE_CONTACT,
+                contact: savedContact
             })
         })
 }
