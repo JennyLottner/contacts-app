@@ -39,7 +39,7 @@ export function ContactEdit() {
 
     if (!contactToEdit) return <div className="loading-div">Loading contact...</div>
     return <section className="contact-edit">
-        <h1>Edit your contact details</h1>
+        <h3>Edit your contact details</h3>
         {contactToEdit &&
             <form className="contact-edit-form flex column" onSubmit={setContactDetails}>
                 <div className="img-and-input-div flex space-evenly">

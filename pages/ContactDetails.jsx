@@ -17,7 +17,7 @@ export function ContactDetails() {
 
     if (!contact) return <div className="loading-div">Loading contact...</div>
     return <section className="details-section column flex">
-        <h1>Contact details</h1>
+        <h3>Contact details</h3>
 
         <div className="details-actions flex space-between">
             <Link to={`/contacts`}><button>Back</button></Link>
@@ -27,11 +27,11 @@ export function ContactDetails() {
         <div className="contact-details flex center">
             <img src={contact.img} />
             <div className="info">
-                <h2>Full Name:&nbsp;&nbsp;<span>{contact.fullName}</span></h2>
-                <h2>Birthday:&nbsp;&nbsp;<span>{contact.birthday}</span></h2>
+                <h3>Full Name:&nbsp;&nbsp;<span>{contact.fullName}</span></h3>
+                <h3>Birthday:&nbsp;&nbsp;<span>{contact.birthday}</span></h3>
                 {/* <h2>Birthday:&nbsp;&nbsp;<span>{birthStr}</span></h2> */}
-                <h2>Phone:&nbsp;&nbsp;<span>{contact.tel}</span></h2>
-                <h2>Address:&nbsp;&nbsp;<span>{contact.address}</span></h2>
+                <h3>Phone:&nbsp;&nbsp;<span>{contact.tel}</span></h3>
+                <h3>Address:&nbsp;&nbsp;<span>{contact.address}</span></h3>
             </div>
         </div>
     </section>
