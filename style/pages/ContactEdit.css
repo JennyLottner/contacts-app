@@ -1,3 +1,8 @@
+.contact-edit h1 {
+    align-self: flex-start;
+    margin-block-end: 1.2em;
+}
+
 .input-div {
     align-items: flex-start;
 }
@@ -8,8 +13,8 @@
 
 .contact-edit-img {
     object-fit: contain;
-    height: auto;
-    max-width: 50%;
+    height: 13.5em;
+    width: auto;
     border-radius: 50%;
     background-color: rgba(240, 245, 255, 0.589)
 }
@@ -27,6 +32,11 @@
     gap: 1.5em;
 }
 
+.forms-div {
+    width: 50%;
+    max-width: 18.75em;
+}
+
 .img-and-input-div input#contact-phone{
     max-width: 6.25em
 }
@@ -36,8 +46,15 @@
         flex-direction: column;
     }
 
+    .forms-div {
+        /* align-self: center; */
+        width: auto;
+        max-width: 90vw;
+    }
+
     .contact-edit-img {
         align-self: center;
-        max-width: 80vw;
+        height: auto;
+        width: 195px;
     }   
 }

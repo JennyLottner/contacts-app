@@ -39,10 +39,14 @@ export function ContactEdit() {
 
     if (!contactToEdit) return <div className="loading-div">Loading contact...</div>
     return <section className="contact-edit">
-        <h1 style={{ textAlign: 'center' }}>Edit your contact details</h1>
+        <h1>Edit your contact details</h1>
         {contactToEdit &&
             <form className="contact-edit-form flex column" onSubmit={setContactDetails}>
                 <div className="img-and-input-div flex space-evenly">
+                    
+                <img src={`https://robohash.org/${contactToEdit.fullName}?set=set2`} className="contact-edit-img"
+                        title={`${contactToEdit.fullName}'s profile image`} alt={`${contactToEdit.fullName}'s profile image`} onLoad={handleChange} />
+
                     <div className="forms-div flex column">
 
                         <div className="flex space-between">
@@ -73,9 +77,6 @@ export function ContactEdit() {
                             <label htmlFor="contact-address">Address:&nbsp;&nbsp;</label>
                             <input type="text" name="address" id="contact-address" placeholder="Your address" value={contactToEdit.address || ''} onChange={handleChange} /></div>
                     </div>
-
-                    <img src={`https://robohash.org/${contactToEdit.fullName}?set=set2`} className="contact-edit-img"
-                        title={`${contactToEdit.fullName}'s profile image`} alt={`${contactToEdit.fullName}'s profile image`} onLoad={handleChange} />
                 </div>
                 
                 <button className="contact-edit-btn">Set</button>
