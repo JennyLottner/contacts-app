@@ -21,7 +21,7 @@ export function ContactDetails() {
 
         <div className="details-actions flex space-between">
             <Link to={`/contacts`}><button>Back</button></Link>
-            <Link to={`/contacts/edit/:${contact._id}`}><button>Edit contact</button></Link>
+            <Link to={`/contacts/edit/${contact._id}`}><button>Edit contact</button></Link>
         </div>
 
         <div className="contact-details flex center">
