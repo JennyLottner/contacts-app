@@ -1,0 +1,37 @@
+.details-actions {
+    margin-block-end: 1em;
+}
+
+.contact-details {
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.details-section img {
+    object-fit: contain;
+    height: auto;
+    max-width: 12.5em;
+    align-self: center;
+
+    border-radius: 50%;
+    background-color: rgba(240, 245, 255, 0.589)
+}
+
+.contact-details h2:first-of-type {
+    margin-block-start: 0;
+}
+
+.details-section span {
+    font-weight: lighter;
+}
+
+@media(width > 600px) {
+    .contact-details {
+        flex-direction: row;
+    }
+
+    .details-section img {
+        height: 11.625em;
+        max-width: auto;
+    }
+}

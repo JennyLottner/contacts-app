@@ -9,9 +9,10 @@
 
 /* Pages */
 @import 'pages/contactIndex.css';
+@import 'pages/contactDetails.css';
+@import 'pages/ContactEdit.css';
 
 /* Components */
 @import 'cmps/appHeaderFooter.css';
 @import 'cmps/contactList.css';
 @import 'cmps/contactPreview.css';
-@import 'pages/ContactEdit.css';

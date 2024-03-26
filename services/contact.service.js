@@ -143,6 +143,8 @@ function _birthdayGenerator() {
 }
 
 function getBirthdayFromString(contact) {
+    if (!contact.birthday || typeof contact.birthday !== 'string') return contact.birthday
+    
     const birthdayArr = contact.birthday.split('-')
     const date = new Date(Date.UTC(birthdayArr[0], birthdayArr[1] - 1, birthdayArr[2]))
 

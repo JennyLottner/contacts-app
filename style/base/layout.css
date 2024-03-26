@@ -4,6 +4,7 @@ body {
 
 .home-section,
 .contacts-section,
+.details-section,
 .contact-edit {
     margin-inline: 1em;
     padding-block-end: 2.5em;

@@ -2,10 +2,13 @@ import { saveContact } from "../store/actions/contact.actions.js"
 import { contactService } from "../services/contact.service.js"
 import { setMsg } from "../store/actions/app.actions.js"
 const { useEffect, useState } = React
+const { useNavigate } = ReactRouter
 const { useParams } = ReactRouterDOM
+
 
 export function ContactEdit() {
     const [contactToEdit, setContactToEdit] = useState(null)
+    const navigate = useNavigate()
     const { contactId } = useParams()
 
     useEffect(() => {
@@ -19,7 +22,10 @@ export function ContactEdit() {
     function setContactDetails(ev) {
         ev.preventDefault()
         saveContact(contactToEdit)
-            .then(savedContact => setMsg(`${savedContact.fullName} was successfully saved to our contact list!`))
+            .then(savedContact => {
+                setMsg(`${savedContact.fullName} was successfully saved to our contact list!`)
+                navigate('/contacts')
+            })
             .catch(err => console.log('err', err))
     }
 
@@ -55,7 +61,7 @@ export function ContactEdit() {
 
                         <div className="flex space-between">
                             <label htmlFor="contact-birthday">Birth day:&nbsp;&nbsp;</label>
-                            <input type="date" id="contact-birthday" name="birthday" required value={contactToEdit.birthday || ''} onChange={handleChange} />
+                            <input type="date" id="contact-birthday" name="birthday" value={contactToEdit.birthday || ''} onChange={handleChange} />
                         </div>
 
                         <div className="flex space-between">
