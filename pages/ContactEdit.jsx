@@ -38,11 +38,13 @@ export function ContactEdit() {
             <form className="contact-edit-form flex column" onSubmit={setContactDetails}>
                 <div className="img-and-input-div flex space-evenly">
                     <div className="forms-div flex column">
-                        <div className="flex">
+
+                        <div className="flex space-between">
                             <label htmlFor="contact-fullname">Full name:&nbsp;&nbsp;</label>
                             <input id="contact-fullname" name="fullName" type="text" placeholder="Your full name" value={contactToEdit.fullName || ''} onChange={handleChange} />
                         </div>
-                        <div className="flex">
+
+                        <div className="flex space-between">
                             <label>Gender:&nbsp;&nbsp;</label>
                             <select value={contactToEdit.gender} name="gender" onChange={handleChange}>
                                 <option value="f">Female</option>
@@ -50,21 +52,26 @@ export function ContactEdit() {
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <div className="flex">
+
+                        <div className="flex space-between">
                             <label htmlFor="contact-birthday">Birth day:&nbsp;&nbsp;</label>
                             <input type="date" id="contact-birthday" name="birthday" required value={contactToEdit.birthday || ''} onChange={handleChange} />
                         </div>
-                        <div className="flex">
+
+                        <div className="flex space-between">
                             <label htmlFor="contact-phone">Phone number:&nbsp;&nbsp;</label>
-                            <input type="tel" name="tel" id="contact-phone" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" value={contactToEdit.tel || ''} onChange={handleChange} />
+                            <input type="tel" name="tel" id="contact-phone" placeholder="xxx-xxxxxxx" value={contactToEdit.tel || ''} onChange={handleChange} />
                         </div>
-                        <div className="flex">
+
+                        <div className="flex space-between">
                             <label htmlFor="contact-address">Address:&nbsp;&nbsp;</label>
                             <input type="text" name="address" id="contact-address" placeholder="Your address" value={contactToEdit.address || ''} onChange={handleChange} /></div>
                     </div>
+
                     <img src={`https://robohash.org/${contactToEdit.fullName}?set=set2`} className="contact-edit-img"
                         title={`${contactToEdit.fullName}'s profile image`} alt={`${contactToEdit.fullName}'s profile image`} onLoad={handleChange} />
                 </div>
+                
                 <button className="contact-edit-btn">Set</button>
             </form>}
     </section>
