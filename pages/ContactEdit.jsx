@@ -33,7 +33,6 @@ export function ContactEdit() {
         ev.stopPropagation()
         const { target } = ev
         const { name: field, type, value } = target
-        console.log(value)
         if (type === 'number') value = +value
         setContactToEdit((prevContact) => ({ ...prevContact, [field]: value }))
     }
